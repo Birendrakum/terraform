@@ -53,7 +53,7 @@ resource "aws_instance" "myFirstInstance" {
   connection {
     host = self.public_ip
     type = "ssh"
-    user = "root"
+    user = "ec2_user"
     private_key = var.key_pair
 }
  provisioner "local-exec" {
