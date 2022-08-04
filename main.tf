@@ -57,7 +57,7 @@ resource "aws_instance" "myFirstInstance" {
     private_key = var.key_pair
 }
  provisioner "local-exec" {
-   command = "ansible-playbook -i ${aws_instance.web.public_ip}, --private-key $(var.keyname) play.yml"
+   command = "echo 'Hi' "
  }
 }
 
