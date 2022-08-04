@@ -56,7 +56,7 @@ tags= {
   }
 }
 
-locals{
-  public_dns = aws_instance.myFirstInstance.public_dns
+output "instance_ips" {
+  value = aws_instance.myFirstInstance.*.public_dns
 }
 
