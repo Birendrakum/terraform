@@ -55,3 +55,8 @@ tags= {
     Name = "my_elastic_ip"
   }
 }
+
+locals{
+  public_dns = aws_instance.myFirstInstance.public_dns
+}
+
