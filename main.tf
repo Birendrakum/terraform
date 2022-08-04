@@ -45,6 +45,20 @@ resource "aws_instance" "myFirstInstance" {
   tags= {
     Name = var.tag_name
   }
+  provisioner "remote-access"{
+    inline = [
+      "echo 'build ssh connection' "
+      ]
+  }
+  connection {
+    host = self.public_ip
+    type = "ssh"
+    user = "root"
+    private_key = var.key_pair
+}
+ provisioner "local-exec" {
+   command = "ansible-playbook -i ${aws_instance.web.public_ip}, --private-key $(var.keyname) play.yml"
+ }
 }
 
 # Create Elastic IP address
