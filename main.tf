@@ -1,6 +1,6 @@
 provider "aws" {
-  access_key = "AKIAVKCFJZ7FBVIZW4OA"
-  secret_key = "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"
+  access_key = "ASIAVKCFJZ7FPEGUSJJN"
+  secret_key = "hkr0ICdlcnp2YnOApaOCf4yf+U+3wMy/XdndJj/O"
   region = var.aws_region
 }
 
@@ -56,7 +56,7 @@ tags= {
   }
 }
 
-output "instance_ips" {
+output "public_dns" {
   value = aws_instance.myFirstInstance.*.public_dns
 }
 
