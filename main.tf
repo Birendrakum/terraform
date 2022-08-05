@@ -52,7 +52,7 @@ resource "aws_instance" "myFirstInstance" {
     host = self.public_ip
     type = "ssh"
     user = "ec2_user"
-    private_key = var.key_pair
+    private_key = var.key_name
 }
  provisioner "local-exec" {
    command = "ansible-playbook -i ${aws_instance.myFirstInstance.public_ip}, --private-key ${var.SSH_key} play.yaml "
