@@ -2,6 +2,7 @@
 - hosts: all
   remote_user: ec2_user
   become: true
+  become_method: su
   tasks:
     - name: Ensure Jenkins repository is added
       become: true
