@@ -39,7 +39,7 @@ resource "aws_security_group" "my_security_group" {
 # Create AWS ec2 instance
 resource "aws_instance" "myFirstInstance" {
   ami           = var.ami_id
-  key_name = var.key_name
+  key_name = var.Key_name
   instance_type = var.instance_type
   security_groups= [var.security_group]
   tags= {
@@ -54,7 +54,7 @@ resource "aws_instance" "myFirstInstance" {
     host = self.public_ip
     type = "ssh"
     user = "ec2_user"
-    private_key = var.key_pair
+    private_key = var.Key_pair
 }
  provisioner "local-exec" {
    command = "ansible-playbook -i ${aws_instance.myFirstInstance.public_ip}, --private-key ${var.key_pair} play.yaml "
