@@ -4,6 +4,7 @@
   become: true
   tasks:
     - name: Ensure Jenkins repository is added
+      become: true
       yum_repository:
         name: jenkins-ci
         description: jenkins-ci package repository
@@ -11,10 +12,12 @@
         gpgkey: https://pkg.jenkins.io/redhat/jenkins.io.key
         gpgcheck: yes
     - name: Ensure gpp key is imported
+      become: true
       rpm_key:
         state: present
         key: https://pkg.jenkins.io/redhat/jenkins.io.key
     - name: Ensure Jenkins and java-devel package installed
+      become: true
       yum:
         name: '{{ packages }}'
         state: present
