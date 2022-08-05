@@ -52,7 +52,7 @@ resource "aws_instance" "myFirstInstance" {
   connection {
     host = self.public_ip
     type = "ssh"
-    user = "ec2_user"
+    user = "corestack-cb50e"
     private_key = var.SSH_key
 }
  provisioner "local-exec" {
