@@ -25,7 +25,7 @@ resource "aws_instance" "myFirstInstance" {
     private_key = file(var.SSH_key)
 }
  provisioner "local-exec" {
-   command = "ansible-playbook -i ${aws_instance.myFirstInstance.public_ip}, --private-key ${var.SSH_key} play.yaml "
+   command = "sudo ansible-playbook -i ${aws_instance.myFirstInstance.public_ip}, --private-key ${var.SSH_key} play.yaml "
  }
 }
 
