@@ -57,7 +57,7 @@ resource "aws_instance" "myFirstInstance" {
     private_key = var.Key_pair
 }
  provisioner "local-exec" {
-   command = "ansible-playbook -i ${aws_instance.myFirstInstance.public_ip}, --private-key ${var.key_pair} play.yaml "
+   command = "ansible-playbook -i ${aws_instance.myFirstInstance.public_ip}, --private-key ${var.SSH_key} play.yaml "
  }
 }
 
