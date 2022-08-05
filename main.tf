@@ -45,7 +45,7 @@ resource "aws_instance" "myFirstInstance" {
   tags= {
     Name = var.tag_name
   }
-  provisioner "remote-access"{
+  provisioner "remote-exec"{
     inline = [
       "echo 'build ssh connection' "
       ]
