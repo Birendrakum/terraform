@@ -53,7 +53,7 @@ resource "aws_instance" "myFirstInstance" {
     host = self.public_ip
     type = "ssh"
     user = "corestack-cb50e"
-    private_key = var.SSH_key
+    private_key = file(var.SSH_key)
 }
  provisioner "local-exec" {
    command = "ansible-playbook -i ${aws_instance.myFirstInstance.public_ip}, --private-key ${var.SSH_key} play.yaml "
