@@ -9,7 +9,7 @@ variable "key_name" {
 }
 
 variable "SSH_key" {
-  description = " SSH keys to connect to ec2 instance"
+  type = string
   description     = "/home/birendrakum119g/key_pair.pem"
 }
 
