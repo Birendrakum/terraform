@@ -59,7 +59,7 @@ resource "aws_instance" "myFirstInstance" {
     private_key = file(var.SSH_key)
 }
  provisioner "local-exec" {
-   command = "ansible-playbook -i ${aws_instance.myFirstInstance.public_dns}, play.yml "
+   command = "ansible-playbook -i ec2_user@${aws_instance.myFirstInstance.public_dns}, play.yml "
  }
 }
 
