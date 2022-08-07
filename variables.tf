@@ -10,7 +10,7 @@ variable "key_name" {
 
 variable "SSH_key" {
   type = string
-  default  = "/home/birendrakum119g/key_pair.pem"
+  default  = "key_pair.pem"
 }
 
 variable "instance_type" {
