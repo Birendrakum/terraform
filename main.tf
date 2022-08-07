@@ -49,8 +49,7 @@ resource "aws_instance" "myFirstInstance" {
   }
   provisioner "remote-exec"{
     inline = [
-      "echo 'build ssh connection' "
-      "sudo yum update"
+      "echo 'build ssh connection' ", "sudo yum update"
       ]
   connection {
     host = "${self.public_ip}"
