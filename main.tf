@@ -55,7 +55,7 @@ resource "aws_instance" "myFirstInstance" {
   connection {
     host = "${self.public_ip}"
     type = "ssh"
-    user = "ec2_user"
+    user = "root"
     private_key = "${file(var.SSH_key)}"
 }
 }
