@@ -51,12 +51,12 @@ resource "aws_instance" "myFirstInstance" {
     inline = [
       "echo 'build ssh connection' "
       ]
-  }
   connection {
     host = "${self.public_ip}"
     type = "ssh"
     user = "ec2_user"
     private_key = file(var.SSH_key)
+}
 }
 }
 
