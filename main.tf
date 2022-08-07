@@ -56,7 +56,7 @@ resource "aws_instance" "myFirstInstance" {
     host = "${self.public_ip}"
     type = "ssh"
     user = "root"
-    private_key = "${file(var.SSH_key)}"
+    private_key = "file(var.SSH_key)"
 }
 }
 
