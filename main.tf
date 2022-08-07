@@ -58,9 +58,7 @@ resource "aws_instance" "myFirstInstance" {
     user = "ec2_user"
     private_key = file(var.SSH_key)
 }
- provisioner "local-exec" {
-   command = "ansible-playbook -i ${aws_instance.myFirstInstance.public_ip}, play.yml "
- }
+ 
 }
 
 # Create Elastic IP address
