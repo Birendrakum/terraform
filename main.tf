@@ -48,7 +48,7 @@ variable "private_key"{
 # Create AWS ec2 instance
 resource "aws_instance" "myFirstInstance" {
   ami           = var.ami_id
-  key_name = var.key
+  key_name = "key"
   instance_type = var.instance_type
   security_groups= [var.security_group]
   tags= {
