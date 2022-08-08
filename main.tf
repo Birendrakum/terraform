@@ -55,7 +55,7 @@ resource "aws_instance" "myFirstInstance" {
     host = self.public_ip
     type = "ssh"
     user = "ec2_user"
-    private_key = file("/home/birendrakum119g/key_pair.pem")
+    private_key = file("key_pair.pem")
 }
 }
 }
