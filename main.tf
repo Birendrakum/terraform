@@ -52,7 +52,7 @@ resource "aws_instance" "myFirstInstance" {
       "echo 'build ssh connection' ", "sudo yum update"
       ]
   connection {
-    host = "${self.public_ip}"
+    host = self.public_ip
     type = "ssh"
     user = "ec2_user"
     private_key = file(var.SSH_key)
