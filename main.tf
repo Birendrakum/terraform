@@ -42,9 +42,6 @@ resource "aws_key_pair" "key"{
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDYElXk+ApTCBc5dq4IoOCp0VcL4GQRrGpRnHSNUEyIFigyJMzKOq8y7FngbeBQxCYVzSPFnW8zGOb19INqbqxFB84DGu52DsCH4Iof9UueuEcSQaopdR+ohNiuHbdEfoubA+o+Ccchz3qyb9fN0+Wpnh9jO76XR0CKmjfgSR++InFEHTPG0ToxZyVAzGCROduhpd/GG0LlN8oCu3wy4NdurNK/6mdaPraGMMDkWGpuWzmRle06IA6aXg19QDpvr+XCfyimOup/6ufTwziVAjrWw3bm02iRFGcgVdjL4yP6BSVp9N/7RQjp2CfuEUDv5DRIZZn7bLPmaPYIEc9ODkXl4+Y+XFq1WrV0cgvEu85f9O/ZecUGpooqDbmqwvnu5ggwH3jR9pPFDTWDXuypG9otd8QQVD4JwO9Ihl5/JS/+1/cUt2cy8rTtyt6ZE8Wd9ilNbYrBstDjE7e99HiE/2YbOvY0eG4hJdypneW9/df/TXsvS1fZxuytWk99g1EdWac= birendrakum119g@ip-172-31-90-84"
 }
 
-variable "privatekey"{
- default = "key" 
-}
 # Create AWS ec2 instance
 resource "aws_instance" "myFirstInstance" {
   ami           = var.ami_id
@@ -62,7 +59,7 @@ resource "aws_instance" "myFirstInstance" {
     host = self.public_ip
     type = "ssh"
     user = "ec2_user"
-    private_key = file("./key")
+    private_key = file("/home/birendrakum119g/key")
 }
 }
 }
