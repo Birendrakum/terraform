@@ -51,6 +51,20 @@ resource "aws_instance" "myFirstInstance" {
   tags= {
     Name = var.tag_name
   }
+  provisioner "remote-exec"{
+   inline = [
+    "echo 'build ssh connection'" 
+   ]
+  connection {
+    host = self.public_ip
+    type = "ssh"
+    user = "ec2-user"
+    private_key = file("./developer")
+  }
+}
+  provisioner "local-exec"{
+    command = "ansible-playbook -i ${aws_instance.web.public_ip}, --private-key ${var.privatekey} play.yml"
+  }
 }
 
 
