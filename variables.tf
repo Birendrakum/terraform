@@ -8,7 +8,7 @@ variable "key_name" {
   default     =  "key_pair"
 }
 
-variable "SSH_key" {
+variable "privatekey" {
   type = string
   default  = "/home/birendrakum119g/key_pair.pem"
 }
